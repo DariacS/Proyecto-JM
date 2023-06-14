@@ -7,4 +7,5 @@ pillow
 django-jazzmin
 django-crispy-forms
 crispy_bootstrap4
-corsheaders
+
+llllllllllllll
