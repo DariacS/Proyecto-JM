@@ -1,0 +1,228 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/log.css'%}">
+{% endblock %}
+{% block contenido %}
+
+{% if user.is_authenticated %}
+<!-- header -->
+<header id="header" class="vh-110 carousel slide" data-bs-ride="carousel" style="padding-top: 410px;">
+    <div class="container h-100 d-flex align-items-center carousel-inner">
+        <div class="text-center carousel-item active">
+            <h2 class="text-capitalize text-white">Nuevos Productos Disponibles</h2>
+            <h1 class="text-uppercase py-2 fw-bold text-white">En descuento</h1>
+            <a href="{% url 'productos' %}" class="btn mt-q mb-3 text-uppercase">Comprar</a>
+        </div>
+        <div class="text-center carousel-item">
+            <h2 class="text-capitalize text-white">suscribete</h2>
+            <h1 class="text-uppercase py-2 text-white">y obten descuentos unicos</h1>
+            <a href="{% url 'suscribete' %}" class="btn mt-3 mb-3 text-uppercase">Suscribirse</a>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#header" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</header>
+{% else %}
+<header id="header" class="vh-100 carousel slide" data-bs-ride="carousel" style="padding-top: 500px;">
+    <div class="container h-100 d-flex align-items-center carousel-inner">
+        <div class="text-center carousel-item active">
+            <h2 class="text-capitalize text-white">Nuevos Productos Disponibles</h2>
+            <h1 class="text-uppercase py-2 fw-bold text-white">En descuento</h1>
+
+        </div>
+        <div class="text-center carousel-item">
+            <h2 class="text-capitalize text-white">Suscribete</h2>
+            <h1 class="text-uppercase py-2 fw-bold text-white">y obten descuentos unicos</h1>
+
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#header" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</header>
+{% endif %}
+<!-- end of header -->
+
+<!--ofertas especiales -->
+<section id="ofertas-especiales" class="py-5">
+    <div class="container">
+        <div class="title text-center py-5">
+            <h2 class="position-relative d-inline-block">Ofertas Especiales</h2>
+        </div>
+
+        <div class="special-list row g-0">
+            <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+                <div class="special-img position-relative overflow-hidden">
+                    <img src="{% static 'core/images/maceteropng.png'%}" class="w-100">
+
+                </div>
+                <div class="text-center">
+                    <p class="text-capitalize mt-3 mb-1">Macetero Minimalista</p>
+                    <span class="fw-bold d-block">$ 5.500</span>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'productos' %}" class="btn btn-primary mt-3">Ver Producto</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+                <div class="special-img position-relative overflow-hidden">
+                    <img src="{% static 'core/images/planta3.jpg'%}" class="w-100">
+
+                </div>
+                <div class="text-center">
+                    <p class="text-capitalize mt-3 mb-1">Planta Artificial</p>
+                    <span class="fw-bold d-block">$ 4.000</span>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'productos' %}" class="btn btn-primary mt-3">Ver Producto</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+                <div class="special-img position-relative overflow-hidden">
+                    <img src="{% static 'core/images/semillapng.jpeg'%}" class="w-100">
+
+                </div>
+                <div class="text-center">
+                    <p class="text-capitalize mt-3 mb-1">Semillas Premium</p>
+                    <span class="fw-bold d-block">$ 45.000</span>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'productos' %}" class="btn btn-primary mt-3">Ver Producto</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+                <div class="special-img position-relative overflow-hidden">
+                    <img src="{% static 'core/images/arbusto2.jpg'%}" class="w-100">
+
+                </div>
+                <div class="text-center">
+                    <p class="text-capitalize mt-3 mb-1">Arbusto Artificial</p>
+                    <span class="fw-bold d-block">$ 7.000</span>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'productos' %}" class="btn btn-primary mt-3">Ver Producto</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fin ofertas especiales -->
+
+<!-- Suscribete -->
+<section id="offers" class="py-5">
+    <div class="container">
+        <div
+            class="row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start ">
+            <div class="offers-content">
+                <span class="text-black">Suscribete y obten un</span>
+                <h2 class="mt-2 mb-4 text-dark">5% de descuento</h2>
+                {% if user.is_authenticated %}
+                <a href="{% url 'suscribete' %}" class="btn">Suscribirse</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fin Suscribete -->
+
+<!-- Clientes-->
+<section id="clientes" class="py-5">
+    <div class="container">
+        <div class="title text-center py-5">
+            <h2 class="position-relative d-inline-block">CLIENTES</h2>
+        </div>
+
+        <div class="row g-3">
+            <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                <img src="{% static 'core/images/cliente1.png'%}" alt="" >
+                <div class="card-body px-0">
+                    <h4 class="card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                    <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia
+                        itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            <span class="fw-bold">Author: </span>John Doe
+                        </small>
+                    </p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                <img src="{% static 'core/images/cliente22.png'%}" alt="">
+                <div class="card-body px-0">
+                    <h4 class="card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                    <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia
+                        itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            <span class="fw-bold">Author: </span>John Doe
+                        </small>
+                    </p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                <img src="{% static 'core/images/cliente33.png'%}" alt="">
+                <div class="card-body px-0">
+                    <h4 class="card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                    <p class="card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia
+                        itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            <span class="fw-bold">Author: </span>John Doe
+                        </small>
+                    </p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fin clientes -->
+
+<!-- SobreNosotros-->
+<section id="SobreNosotros" class="py-5">
+    <div class="container">
+        <div class="row gy-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-1 text-center text-lg-start">
+                <div class="title pt-3 pb-5">
+                    <h2 class="position-relative d-inline-block ms-4">SobreNosotros</h2>
+                </div>
+                <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ipsam.
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga blanditiis, modi
+                    exercitationem quae quam eveniet! Minus labore voluptatibus corporis recusandae accusantium
+                    velit, nemo, nobis, nulla ullam pariatur totam quos.</p>
+            </div>
+            <div class="col-lg-6 order-lg-0">
+                <img src="{% static 'core/images/jardinero-hombre-africano-sosteniendo-planta-aislada-sobre-fondo-rosa-intencion-darse-cuenta-solucion-mientras-levanta-dedo_1368-232837.jpg'%}"
+                    alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fin SobreNosotros-->
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}

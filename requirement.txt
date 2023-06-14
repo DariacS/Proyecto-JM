@@ -1,0 +1,10 @@
+django-paypal
+paypal-checkout-serversdk
+django-rest-framework
+pymysql
+mysqlclient
+pillow
+django-jazzmin
+django-crispy-forms
+crispy_bootstrap4
+corsheaders

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardineria J&M</title>
+  <!-- fontawesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/perfil.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+        <img src="images/Logo_Jardineria-del-valles-800px.png" alt="" height="80px">
+      </a>
+
+      <div class="order-lg-2 nav-btns">
+        <button type="button" class="btn position-relative">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+        </button>
+        <button type="button" class="btn position-relative">
+          <i class="fa fa-solid fa fa-truck"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">1</span>
+        </button>
+        <button type="button" class="btn position-relative">
+          <i class="fa fa-search"></i>
+        </button>
+        <button type="button" class="btn position-relative button-nav">
+          <a class="nav-link" href="perfil.html"><i class="fa fa-solid fa fa-user"></i></a>
+        </button>
+      </div>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="index.html">Inicio</a>
+          </li>
+          <div class="dropdown">
+            <li class="nav-item px-2 py-2">
+              <a class="nav-link text-uppercase text-dark" href="" type="button" class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">Productos</a>
+              <ul class="dropdown-menu">
+                <li> <button type="button" class="btn m-2 text-dark"><a href="productos.html">todos</a></button></li>
+                <li><button type="button" class="btn m-2 text-dark" data-filter=".best">Maceteros</button></li>
+                <li><button type="button" class="btn m-2 text-dark" data-filter=".feat">Plantas</button></li>
+                <li><button type="button" class="btn m-2 text-dark" data-filter=".new">Herramientas</button></li>
+
+              </ul>
+            </li>
+
+          </div>
+
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="#contactanos">Contactenos</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="#SobreNosotros">Sobre Nosotros</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="#ofertas-especiales">Ofertas Especiales</a>
+          </li>
+          <li class="nav-item px-2 py-2 border-0">
+            <a class="nav-link text-uppercase text-dark" href="#clientes">Clientes</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end of navbar -->
+  <br><br><br><br><br><br>
+
+  <section class="seccion-perfil-usuario mt-4">
+    <div class="perfil-usuario-header">
+      <div class="perfil-usuario-portada">
+        <div class="perfil-usuario-avatar">
+          <img src="images/img-avatar.webp" alt="img-avatar">
+          <button type="button" class="boton-avatar">
+            <i class="far fa-image"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="perfil-usuario-body">
+      <div class="perfil-usuario-bio d-flex justify-content-center">
+        <h3>Jose Ariel Rodriguez Perez</h3>
+      </div>
+      <div class="perfil-usuario-footer">
+        <ul class="lista-datos">
+          <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:
+            <input type="nombre" class="form-control" id="nombre" placeholder="Av. Providencia 1100, Providencia"
+              name="email">
+          </li>
+          <li><i class="icono fas fa-phone-alt"></i> Telefono:
+            <input type="telefono" class="form-control" id="telefono" placeholder="+56912345678" name="telefono">
+          </li>
+          <li><i class="icono fas fa-calendar-alt"></i> Meses de suscripción:
+            <input type="meses" class="form-control" id="meses" placeholder="3 Meses" name="meses">
+          </li>
+          <li><i class="icono fas fa-calendar-alt"></i> Fecha vencimiento suscripción:
+            <input type="ven" class="form-control" id="ven" placeholder="05/junio/2023" name="ven">
+          </li>
+        </ul>
+        <ul class="lista-datos">
+          <li><i class="icono fas fa-map-marker-alt"></i> Región:
+            <input type="ubi" class="form-control" id="ubi" placeholder="Región Metropolitana" name="ubi">
+          </li>
+          <li><i class="icono fas fa-user-check"></i> Rut:
+            <input type="rut" class="form-control" id="rut" placeholder="17.895.233-k" name="rut">
+          </li>
+          <li><i class="icono fas fa-calendar-alt"></i> Fecha de Nacimiento:
+            <input type="fech" class="form-control" id="fech" placeholder="17.895.233-k" name="fech">
+          </li>
+          <li><i class="icono fas fa-phone-alt"></i>Telefono de Emergencia:
+            <input type="tel" class="form-control" id="tel" placeholder="+56988820003" name="tel">
+          </li>
+          </li>
+        </ul>
+
+        <button class="cerrar-sesion">Cerrar sesion</button>
+        <button class="volver"><a href="subscrito.html">Volver</a></button>
+        <button class="volver"><a href="subscrito.html" data-bs-toggle="modal" data-bs-target="#myModal">anular
+            suscripcion</a></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <h2>ATENCION!</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <P>Seguro que desea anular la suscripcion?</P>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer atencion">
+          <button class="btn btn-danger bg-danger"><a href="logeado.html">SI</a></button>
+          <button class="btn btn-danger bg-primary"><a href="perfil-subscrito.html">NO</a></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- footer -->
+  <footer>
+    <div class="row">
+
+      <div class="col">
+
+
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <i class="fab fa-slack"></i>
+              <span class="logo_name">Jardineria J&M</span>
+            </div>
+            <div class="media-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Empresa</li>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Contactenos</a></li>
+              <li><a href="#">Sobre Nosotros</a></li>
+              <li><a href="#">Get started</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Servicios</li>
+              <li><a href="#">Venta de plantas</a></li>
+              <li><a href="#">Venta de herramientas</a></li>
+              <li><a href="#">Venta de semillas</a></li>
+              <li><a href="#">Servicios extras</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Cuenta</li>
+              <li><a href="#">Perfil</a></li>
+              <li><a href="#">Mi cuenta</a></li>
+              <li><a href="#">Preferencias</a></li>
+              <li><a href="#">Compras</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Importantes</li>
+              <li><a href="#">Terminos</a></li>
+              <li><a href="#">Condiciones</a></li>
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="#">Garantias</a></li>
+            </ul>
+
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright © 2023 <a href="#">Jardineria J&M.</a>Todos los derechos
+              reservados</span>
+            <span class="policy_terms">
+              <a href="#">Privacidad politica</a>
+              <a href="#">Terminos y condiciones</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer -->
+
+  <!-- jquery -->
+  <script src="js/jquery-3.6.0.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  <!-- bootstrap js -->
+  <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+  <!-- custom js -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<link rel="stylesheet" href="{% static 'core/css/carrito.css'%}">
+
+<!-- carrito -->
+
+<body>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        <div class="col"><b>Carrito de Compras</b></div>
+                    </div>
+                </div>
+
+                {% for item_carrito in items_carrito %}
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center es">
+                        <div class="col">
+                            {% if item_carrito.producto.foto %}
+                            <img src="{{ item_carrito.producto.foto.url }}" class="img-fluid" width="100" height="100">
+                            {% else %}
+                            <img src="{% static 'core/images/giphy.gif'%}" class="img-fluid" width="100" height="100">
+                            {% endif %}
+                        </div>
+
+                        <div class="col">
+                            <div class="row text-muted">
+                                <p>{{ item_carrito.producto.tipo }}</p>
+                            </div>
+                            <div class="row">
+                                <p>{{ item_carrito.producto.nombre }}</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            {% if user.username == "suscriptor" %}
+                            <span class="fw-bold d-block">$ 1.500</span>
+                            {% else %}
+                            <span class="fw-bold">
+                                <p>Precio Unitario:<br>${{ item_carrito.producto.precio }}</p>
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'Sub' item_carrito.producto_id %}"
+                                class="badge btn btn-dark badge-dark">-</a>
+                        </div>
+                        {{ item_carrito.cantidad }}
+                        <div class="col">
+                            <a href="{% url 'Add' item_carrito.producto_id %}" class="badge btn btn-dark badge-dark"
+                                style="margin-right: 30px;">+</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+                <a class="btn btn-danger seguir-comprando nav-link text-uppercase text-dark"
+                    href="{% url 'productos' %}">Seguir comprando</a>
+            </div>
+            <div class="col-md-4 resumen">
+
+                <div class="res">Resumen</div>
+                <form>
+                    <p>ENVIO</p>
+                    <select>
+                        <option class="btn text-muted">Envio</option>
+                        <option value="1">Delivery-Estandar $5.000</option>
+                        <option value="2">Delivery-Gratis (Solo para suscriptores)</option>
+                    </select>
+                </form>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="row">
+                    <div class="col" style="padding-left:10;margin-bottom: 10px;">SUB-TOTAL</div>
+                    {% if user.username == "suscriptor" %}
+                    <span class="col text-right fw-bold d-block">$ 1.500</span>
+                    {% else %}
+                    <div class="col text-right">${{ precio_total }}</div>
+                    {% endif %}
+                </div>
+                <div class="row so" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL </div>
+                    {% if user.username == "suscriptor" %}
+                    <span class="col text-right fw-bold d-block">$ 1.500</span>
+                    {% else %}
+                    <div class="col text-right">${{ precio_total }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="d-flex justify-content-center justify-content-between mt-4" >
+                    <a onclick="limpiar()"
+                        class="btn btn-primary heart d-flex justify-content-center align-items-center">Borrar
+                        Carrito</a>
+
+                    <div id="btnPaypal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+<script src="http://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+
+    paypal.Button.render({
+        env: 'sandbox',
+        client: {
+            sandbox: 'Adk-VW5MPOTjE1uxbWMgDzPn7RB__ngXPEEUCyExzFuYEoZH1I7kv-ikWw1gdJ915L9TFLkWZLsqnh9i',
+            production: 'demo_production_client_id'
+        },
+
+        locale: 'es_CL',
+        style: {
+            size: 'small',
+            color: 'black',
+            shape: 'rect',
+        },
+        commit: true,
+        payment: function (data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: 'total_precio',
+                        currency: 'USD'
+                    }
+                }]
+            });
+        },
+        onAuthorize: function (data, actions) {
+            return actions.payment.execute().then(function () {
+                Swal.fire({
+                    title: 'Pago Exitoso',
+                    text: 'Pago realizado correctamente!',
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Aceptar'
+
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire('Compra', ' realizada exitosamente', 'success').then(function () {
+                            window.location.href = "/limpiar/";
+                        })
+                    }
+                });
+            })
+        },
+
+        onCancel(data) {
+            Swal.fire({
+                title: 'Pago Cancelado',
+                text: 'Pago ha sido cancelado!',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar'
+
+
+            });
+        },
+
+    }, '#btnPaypal');
+
+</script>
+
+
+<script>
+    function pagar() {
+        Swal.fire({
+            title: '¿ Esta seguro ?',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Pagar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Compra', ' realizada exitosamente', 'success').then(function () {
+                    window.location.href = "/limpiar/";
+                })
+            }
+        })
+    }
+</script>
+
+<script>
+    function limpiar() {
+        Swal.fire({
+            title: '¿ Esta seguro ?',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Borrar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Eliminado!', 'Carrito eliminado exitosamente', 'success').then(function () {
+                    window.location.href = "/devolvercarrito/";
+                })
+            }
+        })
+    }
+</script>
+<!--end carrito  -->
+
+{% endblock %}

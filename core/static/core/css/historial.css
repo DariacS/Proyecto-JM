@@ -1,0 +1,48 @@
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+.fa {
+    color: #000;
+}
+
+.fa:hover {
+    color: #3de534 !important;
+}
+
+.card {
+    background-color: #c4f3ba;
+    margin: auto;
+    margin-top: 170px;
+    margin-bottom: 100px;
+    padding: 50px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgb(68, 215, 54);
+    border-radius: 1rem;
+}
+
+.form1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+
+.es {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+@media(max-width:767px) {
+    .card {
+        margin-top: 200px;
+    }
+}
+
+.col1 {
+    font-size: x-large;
+}

@@ -1,0 +1,82 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/seguimiento.css'%}">
+{% endblock %}
+
+
+{% block contenido %}
+
+<!-- seguimiento -->
+<div class="container1">
+    <div class="row">
+        <div class="col-md-3 mb-4 resumen1 ">
+            <div class="container2">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="bg-white py-3 px-2 rounded-common shadow-center dat">
+                            <div class="row border-bottom proc">
+                                <div class="row pro">
+                                    Envíos en curso : 1
+                                </div>
+                            </div>
+                            <div class="row proc">
+                                <div class="row pro">
+                                    Entregado : 0
+                                </div>
+                            </div>
+                            <div class="row border-top proc">
+                                <div class="row pro">
+                                    No Entregado : 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 cart1">
+            <div class="bg-white px-5 pt-3 pb-4 shadow-bottom rounded-common">
+                <div class="container2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-2">
+                                <div class="d-inline-block mb-0 mr-4">
+                                    <div class="d-flex align-items-center ">
+                                        <h5>Realiza seguimiento en linea</h5>
+                                    </div>
+                                    <div class="text-muted">Presiona espacio para separar multiples codigos</div>
+                                    <form class="form1">
+                                        <input id="code" placeholder="Ingresa tu codigo">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-9">
+
+                                    </div>
+                                    <div class="col-xl-3 ">
+                                        <button
+                                            class="btn btn-primary mt-3 d-flex justify-content-center ">BUSCAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-muted mut">
+        (*) El tiempo de entrega es referencial no estando obligado a cumplir con dichos plazos. <br>
+        (*) El tiempo se considera desde que el envío es recepcionado por J&M. <br>
+        (*) Recuerda. Las dimensiones para servicios paquete express zonas extremas y paquete prioritario zonas
+        extremas por línea área no deben superar 1 metro por lado.
+    </div>
+</div>
+<!--end seguimiento  -->
+
+{% endblock %}

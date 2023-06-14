@@ -1,0 +1,87 @@
+.logcont {
+    margin-top: 80px;
+}
+
+.btnlog {
+    width: 200px;
+    height: 35px;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 0.5rem;
+    border-color: #3de534;
+}
+
+.btnlog:hover {
+    color: white;
+    background-color: #3de534;
+}
+
+.btnlogin{
+    margin-left: 30px;
+    border-radius: 50%;
+    background-color: white;
+    padding-top:8px;
+    padding-bottom:8px;
+    padding-left:14px;
+    padding-right:14px;
+    border-color: rgb(255, 237, 214);
+}
+
+.btnlogin:hover{
+    background-color: rgb(248, 248, 248);
+}
+
+.btnlogin2{
+    margin-left: 30px;
+    border-radius: 50%;
+    background-color: white;
+    padding-top:6px;
+    padding-bottom:6px;
+    padding-left:6px;
+    padding-right:6px;
+    border-color: rgb(255, 237, 214);
+}
+
+.media-icons {
+    display: flex;
+}
+
+.media-icons a {
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.media-icons a:nth-child(1) {
+    background: #4267B2;
+}
+
+.media-icons a:nth-child(1):hover {
+    color: #4267B2;
+    background: #fff;
+}
+
+.media-icons a:nth-child(2) {
+    background: #ff0000;
+}
+
+.media-icons a:nth-child(2):hover {
+    color: #ff0000;
+    background: #fff;
+}
+
+.media-icons a:nth-child(3) {
+    background: #E1306C;
+}
+
+.media-icons a:nth-child(3):hover {
+    color: #E1306C;
+    background: #fff;
+}

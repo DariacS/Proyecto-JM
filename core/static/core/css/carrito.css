@@ -1,0 +1,120 @@
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+.fa {
+  color: #000;
+}
+
+.fa:hover {
+  color: #3de534 !important;
+}
+
+.card {
+  background-color: #c4f3ba;
+  margin: auto;
+  margin-top: 170px;
+  margin-bottom: 100px;
+  padding: 50px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgb(68, 215, 54);
+  border-radius: 1rem;
+}
+
+.cart {
+  background-color: #fff;
+  padding: 50px;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.resumen {
+  background-color: #cccccc;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-color: #140B5C;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+
+.imc {
+  width: 3.5rem;
+}
+
+.seguir-comprando {
+  margin-top: 4.5rem;
+
+
+}
+
+.seguir-comprando a {
+  margin-top: 4.5rem;
+  text-decoration: none;
+  color: rgb(8, 1, 1);
+
+}
+
+select {
+  padding: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+
+input {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+
+.close {
+  color: #ca0c0c;
+  margin-left: auto;
+  font-size: 1.5rem;
+  padding-left: 90px;
+}
+
+.es {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: rgb(13, 24, 12);
+  text-decoration: none;
+}
+
+
+
+@media(min-width: 992px) {
+  .nav-item {
+    border-bottom: none;
+  }
+}
+
+@media(max-width:767px) {
+  .cart {
+    padding: 4vh;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 1rem;
+  }
+
+  .card {
+    margin-top: 200px;
+  }
+
+  .imc {
+    width: 3.5rem !important;
+  }
+
+  .resumen {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+  }
+}
